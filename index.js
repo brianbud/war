@@ -28,7 +28,7 @@ function drawCards() {
       p1Card = data.cards[0];
       p2Card = data.cards[1];
       displayCards();
-      console.log('player 1 card', p1Card, 'player2 card', p2Card);
+      compareCardsValue(p1Card, p2Card);
     });
 }
 
@@ -40,4 +40,33 @@ function displayCards() {
   slot2.innerHTML = `
       <img class= "card" src="${p2Card.image}">
 `;
+}
+
+function compareCardsValue(card1, card2) {
+  const values = [
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    'JACK',
+    'QUEEN',
+    'KING',
+    'ACE',
+  ];
+
+  const card1ValueIndex = values.indexOf(card1.value);
+  const card2ValueIndex = values.indexOf(card2.value);
+
+  if (card1ValueIndex > card2ValueIndex) {
+    console.log('player 1 wins');
+  } else if (card2ValueIndex > card1ValueIndex) {
+    console.log('player 2 wins');
+  } else {
+    console.log('its a tie');
+  }
 }
