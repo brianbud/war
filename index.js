@@ -13,11 +13,17 @@ let deckId;
 let p1Card;
 let p2Card;
 
+if (deckId === undefined) {
+  drawBtn.disabled = true;
+}
+
 function handleClick() {
   fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle')
     .then((res) => res.json())
     .then((data) => {
       deckId = data.deck_id;
+      displayCardsLeft(data);
+      drawBtn.disabled = false;
     });
 }
 
@@ -73,5 +79,8 @@ function compareCardsValue(card1, card2) {
 }
 
 function displayCardsLeft(cards) {
+  if (cards.remaining === 0) {
+    drawBtn.disabled = true;
+  }
   cardsLeft.innerHTML = cards.remaining;
 }

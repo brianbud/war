@@ -30,6 +30,10 @@ button {
   margin: 1rem 0;
 }
 
+button:disabled {
+  background-color: dimgray;
+}
+
 .card-slot {
   outline: 1px solid rgb(0, 0, 0);
   height: 150px;
