@@ -3,6 +3,7 @@ const drawBtn = document.querySelector('#draw');
 const cards = document.querySelector('#cards');
 const slot1 = document.querySelector('.slot-1');
 const slot2 = document.querySelector('.slot-2');
+const result = document.querySelector('#result');
 
 newDeckBtn.addEventListener('click', handleClick);
 drawBtn.addEventListener('click', drawCards);
@@ -28,7 +29,7 @@ function drawCards() {
       p1Card = data.cards[0];
       p2Card = data.cards[1];
       displayCards();
-      compareCardsValue(p1Card, p2Card);
+      result.innerHTML = compareCardsValue(p1Card, p2Card);
     });
 }
 
@@ -63,10 +64,10 @@ function compareCardsValue(card1, card2) {
   const card2ValueIndex = values.indexOf(card2.value);
 
   if (card1ValueIndex > card2ValueIndex) {
-    console.log('player 1 wins');
+    return 'Player 1 wins';
   } else if (card2ValueIndex > card1ValueIndex) {
-    console.log('player 2 wins');
+    return 'Player 2 wins';
   } else {
-    console.log('its a tie');
+    return 'War!';
   }
 }
