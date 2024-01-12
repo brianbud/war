@@ -1,6 +1,8 @@
 let newDeckBtn = document.querySelector('#new-deck');
 let drawBtn = document.querySelector('#draw');
 let cards = document.querySelector('#cards');
+let slot1 = document.querySelector('.slot-1');
+let slot2 = document.querySelector('.slot-2');
 
 newDeckBtn.addEventListener('click', handleClick);
 drawBtn.addEventListener('click', drawCards);
@@ -31,14 +33,11 @@ function drawCards() {
 }
 
 function displayCards() {
-  cards.innerHTML = `
-    <div>
-        <h2>Player 1</h2>
-        <img src="${p1Card.image}">
-    </div>
-    <div>
-        <img src="${p2Card.image}">
-        <h2>Player 2</h2>
-    </div>
+  slot1.innerHTML = `
+        <img class= "card" src="${p1Card.image}">
   `;
+
+  slot2.innerHTML = `
+      <img class= "card" src="${p2Card.image}">
+`;
 }

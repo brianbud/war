@@ -10,7 +10,9 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url('table.jpg');
-  background-size: cover;
+  background-size: 250%;
+  text-align: center;
+  color: white;
 }
 
 button {
@@ -20,4 +22,16 @@ button {
   cursor: pointer;
   width: 50%;
   margin: 1rem 0;
+}
+
+.card-slot {
+  border: 1px solid rgb(0, 0, 0);
+  height: 150px;
+  width: calc(150px * 5 / 7);
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+img.card {
+  width: 100%;
 }
