@@ -1,8 +1,8 @@
-let newDeckBtn = document.querySelector('#new-deck');
-let drawBtn = document.querySelector('#draw');
-let cards = document.querySelector('#cards');
-let slot1 = document.querySelector('.slot-1');
-let slot2 = document.querySelector('.slot-2');
+const newDeckBtn = document.querySelector('#new-deck');
+const drawBtn = document.querySelector('#draw');
+const cards = document.querySelector('#cards');
+const slot1 = document.querySelector('.slot-1');
+const slot2 = document.querySelector('.slot-2');
 
 newDeckBtn.addEventListener('click', handleClick);
 drawBtn.addEventListener('click', drawCards);
