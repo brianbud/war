@@ -4,6 +4,7 @@ const cards = document.querySelector('#cards');
 const slot1 = document.querySelector('.slot-1');
 const slot2 = document.querySelector('.slot-2');
 const result = document.querySelector('#result');
+const cardsLeft = document.querySelector('.cards-left');
 
 newDeckBtn.addEventListener('click', handleClick);
 drawBtn.addEventListener('click', drawCards);
@@ -16,9 +17,7 @@ function handleClick() {
   fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       deckId = data.deck_id;
-      console.log(deckId);
     });
 }
 
@@ -28,6 +27,7 @@ function drawCards() {
     .then((data) => {
       p1Card = data.cards[0];
       p2Card = data.cards[1];
+      displayCardsLeft(data);
       displayCards();
       result.innerHTML = compareCardsValue(p1Card, p2Card);
     });
@@ -70,4 +70,8 @@ function compareCardsValue(card1, card2) {
   } else {
     return 'War!';
   }
+}
+
+function displayCardsLeft(cards) {
+  cardsLeft.innerHTML = cards.remaining;
 }
