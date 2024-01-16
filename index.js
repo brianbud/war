@@ -5,6 +5,8 @@ const slot1 = document.querySelector('.slot-1');
 const slot2 = document.querySelector('.slot-2');
 const result = document.querySelector('#result');
 const cardsLeft = document.querySelector('.cards-left');
+const computerPointsEl = document.querySelector('#computer-points');
+const playerPointsEl = document.querySelector('#player-points');
 
 newDeckBtn.addEventListener('click', handleClick);
 drawBtn.addEventListener('click', drawCards);
@@ -12,6 +14,8 @@ drawBtn.addEventListener('click', drawCards);
 let deckId;
 let p1Card;
 let p2Card;
+let computerPoints = 0;
+let playerPoints = 0;
 
 if (deckId === undefined) {
   drawBtn.disabled = true;
@@ -70,9 +74,13 @@ function compareCardsValue(card1, card2) {
   const card2ValueIndex = values.indexOf(card2.value);
 
   if (card1ValueIndex > card2ValueIndex) {
-    return 'Player 1 wins';
+    computerPoints++;
+    computerPointsEl.innerHTML = `${computerPoints}`;
+    return 'Computer wins';
   } else if (card2ValueIndex > card1ValueIndex) {
-    return 'Player 2 wins';
+    playerPoints++;
+    playerPointsEl.innerHTML = `${playerPoints}`;
+    return 'Player wins';
   } else {
     return 'War!';
   }
