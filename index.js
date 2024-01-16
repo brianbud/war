@@ -37,9 +37,9 @@ function drawCards() {
     .then((data) => {
       p1Card = data.cards[0];
       p2Card = data.cards[1];
-      displayCardsLeft(data);
       displayCards();
       result.innerHTML = compareCardsValue(p1Card, p2Card);
+      displayCardsLeft(data);
     });
 }
 
@@ -89,6 +89,13 @@ function compareCardsValue(card1, card2) {
 function displayCardsLeft(cards) {
   if (cards.remaining === 0) {
     drawBtn.disabled = true;
+    if (computerPoints > playerPoints) {
+      result.textContent = `Final Winner: Computer!`;
+    } else if (playerPoints > computerPoints) {
+      result.textContent = `Final Winner: Player!`;
+    } else {
+      result.textContent = `Noone won, it's a tie!`;
+    }
   }
   cardsLeft.innerHTML = cards.remaining;
 }
